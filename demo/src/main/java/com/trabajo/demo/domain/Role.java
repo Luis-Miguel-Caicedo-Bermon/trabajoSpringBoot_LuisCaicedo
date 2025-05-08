@@ -2,6 +2,8 @@ package com.trabajo.demo.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,9 +26,11 @@ public class Role {
     private String name;
 
     @OneToMany(mappedBy = "role")
+    @JsonBackReference
     private List<User> users;
 
     @OneToMany(mappedBy = "role")
+    @JsonBackReference
     private List<GrantedPermission> granted_permissions;
 
     public Role() {
