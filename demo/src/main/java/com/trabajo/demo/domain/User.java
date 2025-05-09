@@ -1,5 +1,7 @@
 package com.trabajo.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class User {
     
     @ManyToOne
     @JoinColumn(name = "role_id",referencedColumnName = "id")
+    @JsonManagedReference
     private Role role;
 
     private String name;
